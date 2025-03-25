@@ -16,3 +16,9 @@
     @apply font-display-serif;
   }
 }
+
+@media print {
+  thead {
+    display: table-row-group;
+  }
+}
