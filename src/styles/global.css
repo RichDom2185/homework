@@ -34,15 +34,15 @@
   &::before {
     background: linear-gradient(
       to right,
-      rgba(127, 127, 127, 0.2),
-      rgba(127, 127, 127, 0.1) 10%,
+      rgba(70, 70, 70, 0.3),
+      rgba(70, 70, 70, 0.1) 10%,
       transparent 25%
     );
     @media screen and (max-width: 840px) {
       background: linear-gradient(
         to right,
-        rgba(127, 127, 127, 0.1),
-        rgba(127, 127, 127, 0.05) 2.5%,
+        rgba(70, 70, 70, 0.1),
+        rgba(70, 70, 70, 0.05) 2.5%,
         transparent 10%
       );
     }
@@ -51,15 +51,15 @@
   &::after {
     background: linear-gradient(
       to left,
-      rgba(127, 127, 127, 0.2),
-      rgba(127, 127, 127, 0.1) 10%,
+      rgba(70, 70, 70, 0.3),
+      rgba(70, 70, 70, 0.1) 10%,
       transparent 25%
     );
     @media screen and (max-width: 840px) {
       background: linear-gradient(
         to left,
-        rgba(127, 127, 127, 0.1),
-        rgba(127, 127, 127, 0.05) 2.5%,
+        rgba(70, 70, 70, 0.1),
+        rgba(70, 70, 70, 0.05) 2.5%,
         transparent 10%
       );
     }
