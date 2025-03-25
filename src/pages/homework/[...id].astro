@@ -29,7 +29,11 @@ const { data, ...hw } = Astro.props;
 </style>
 {data.logo && <Logo {...data.logo} />}
 <PageNumber type={data.pageNumbers} font={data.font} />
-<Layout light title={data.title}>
+<Layout title={data.title}>
+  <div
+    class="light-vignette fixed top-0 h-screen w-screen -z-10 hidden dark:fixed print:hidden"
+  >
+  </div>
   <div
     class:list={[
       "max-w-5xl mx-auto space-y-4 p-12",

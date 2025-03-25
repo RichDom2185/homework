@@ -22,3 +22,46 @@
     display: table-row-group;
   }
 }
+
+.light-vignette {
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+
+  &::before {
+    background: linear-gradient(
+      to right,
+      rgba(127, 127, 127, 0.2),
+      rgba(127, 127, 127, 0.1) 10%,
+      transparent 25%
+    );
+    @media screen and (max-width: 840px) {
+      background: linear-gradient(
+        to right,
+        rgba(127, 127, 127, 0.1),
+        rgba(127, 127, 127, 0.05) 2.5%,
+        transparent 10%
+      );
+    }
+  }
+
+  &::after {
+    background: linear-gradient(
+      to left,
+      rgba(127, 127, 127, 0.2),
+      rgba(127, 127, 127, 0.1) 10%,
+      transparent 25%
+    );
+    @media screen and (max-width: 840px) {
+      background: linear-gradient(
+        to left,
+        rgba(127, 127, 127, 0.1),
+        rgba(127, 127, 127, 0.05) 2.5%,
+        transparent 10%
+      );
+    }
+  }
+}
