@@ -1,0 +1,53 @@
+---
+import { getCollection } from "astro:content";
+import { groupBy } from "es-toolkit";
+
+const homeworkList = await getCollection("homework");
+const byFolder = groupBy([...homeworkList], (hw) => hw.id.split("/", 2)[0]);
+
+const getUrl = (id: string) => `/homework/${id}`;
+---
+
+<section class="bg-dynamic">
+  <div class="p-12 space-y-6 max-w-[1800px] mx-auto">
+    <h2 class="font-display-sans font-bold text-4xl tracking-wide">Files</h2>
+    <div class="flex flex-wrap justify-start items-center">
+      {
+        Object.entries(byFolder)
+          .sort(([a, _], [b, __]) => a.localeCompare(b))
+          .map(([folder, homeworks]) => (
+            <section class="w-full sm:w-1/2 lg:w-1/3 2xl:w-1/4 p-3">
+              <div
+                class:list={[
+                  "border border-neutral-400 dark:border-neutral-600 rounded",
+                  "px-4 py-2 space-y-3",
+                ]}
+              >
+                <h2 class="font-display-sans tracking-wide font-semibold text-xl uppercase">
+                  {folder}
+                </h2>
+                <ul class="list-disc list-inside">
+                  {homeworks
+                    .sort((a, b) => a.id.localeCompare(b.id))
+                    .map((hw) => (
+                      <li>
+                        <a
+                          class:list={[
+                            "text-blue-600 dark:text-blue-300",
+                            "hover:text-blue-800 dark:hover:text-blue-400",
+                            "hover:underline underline-offset-4",
+                          ]}
+                          href={getUrl(hw.id)}
+                        >
+                          {hw.data.title}
+                        </a>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            </section>
+          ))
+      }
+    </div>
+  </div>
+</section>
