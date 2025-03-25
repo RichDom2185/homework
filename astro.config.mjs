@@ -3,6 +3,14 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import clsx from "clsx";
 import { h } from "hastscript";
+import rehypeClassNames from "rehype-class-names";
+import rehypeMathjax from "rehype-mathjax";
+import remarkMath from "remark-math";
+import markdownClasses from "./src/data/markdownClasses";
+import {
+  unwrapTopLevelDiv,
+  wrapWithTopLevelDiv,
+} from "./src/utilities/markdown";
 
 /**
  * @import {ShikiTransformer} from '@shikijs/core'
@@ -43,6 +51,14 @@ export default defineConfig({
       },
       transformers: [transformerWrapWithDiv],
     },
+    remarkPlugins: [remarkMath],
+    rehypePlugins: [
+      rehypeMathjax,
+      // To allow targetting of top-level elements
+      [wrapWithTopLevelDiv, "prose"],
+      [rehypeClassNames, markdownClasses],
+      [unwrapTopLevelDiv, "prose"],
+    ],
   },
   server: {
     port: 3000,
