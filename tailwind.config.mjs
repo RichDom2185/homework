@@ -19,6 +19,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        displaySans: ["Roboto Flex", ...defaultTheme.fontFamily.sans],
+        sans: ["Inter", ...defaultTheme.fontFamily.sans],
         displaySerif: ["Old Standard TT", ...defaultTheme.fontFamily.serif],
         serif: ["PT Serif", ...defaultTheme.fontFamily.serif],
         mono: ["Geist Mono", ...defaultTheme.fontFamily.mono],
