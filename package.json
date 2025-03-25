@@ -17,6 +17,8 @@
     "tailwindcss": "^4.0.15"
   },
   "devDependencies": {
+    "clsx": "^2.1.1",
+    "hastscript": "^9.0.1",
     "typescript": "^5.8.2"
   }
 }
