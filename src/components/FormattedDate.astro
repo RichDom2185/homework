@@ -1,0 +1,14 @@
+---
+import dayjs from "dayjs";
+
+type Props = {
+  date: Date;
+  withDay?: boolean;
+};
+const { date, withDay = false } = Astro.props;
+const formatted = dayjs(date).format(
+  withDay ? "dddd, D MMM YYYY" : "D MMMM YYYY"
+);
+---
+
+<time datetime={date.toISOString()}>{formatted}</time>

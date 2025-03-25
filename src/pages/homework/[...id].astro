@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from "astro";
 import { Fragment } from "astro/jsx-runtime";
 import { getCollection, type CollectionEntry } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
 import Logo from "../../components/markdown/Logo.astro";
 import PageNumber from "../../components/markdown/PageNumber.astro";
 import Layout from "../../layouts/Layout.astro";
@@ -59,7 +60,7 @@ const { data, ...hw } = Astro.props;
         ]}
       >
         <li>{data.name}</li>
-        <li>{data.date}</li>
+        <li><FormattedDate date={data.date} /></li>
       </ul>
     </div>
     <hr class="border-neutral-400 dark:border-neutral-600" />
