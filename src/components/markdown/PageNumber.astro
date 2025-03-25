@@ -1,0 +1,23 @@
+---
+type Props = {
+  type?: "left" | "center" | "right";
+  font: "sans" | "serif";
+};
+const { type, font } = Astro.props;
+
+const pageNumbers = `
+@page {
+  @bottom-${type} {
+    content: "Page " counter( page) " of " counter(pages);
+    font-size: small;
+    font-family: ${
+      // TODO: Fix abstraction violation
+      font === "sans" ? '"Inter"' : '"PT Serif"'
+    };
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+}`;
+---
+
+{type && <style set:html={pageNumbers} />}
