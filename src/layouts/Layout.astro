@@ -1,4 +1,7 @@
 ---
+import GoogleFonts from "../components/GoogleFonts.astro";
+import "../styles/global.css";
+
 type Props = {
   light?: boolean;
   dark?: boolean;
@@ -28,8 +31,9 @@ const title =
     />
     <title>{title}</title>
     <meta name="title" content={title} />
+    <GoogleFonts />
   </head>
-  <body>
+  <body class:list={[light && "light", dark && "dark"]}>
     <slot />
   </body>
 </html>

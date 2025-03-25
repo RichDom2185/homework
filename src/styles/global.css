@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@config "../../tailwind.config.mjs";
+
+@utility bg-dynamic {
+  @apply bg-neutral-100 dark:bg-neutral-800 print:bg-transparent;
+}
