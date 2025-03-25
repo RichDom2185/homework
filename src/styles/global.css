@@ -4,3 +4,15 @@
 @utility bg-dynamic {
   @apply bg-neutral-100 dark:bg-neutral-800 print:bg-transparent;
 }
+
+@utility prose-headings-sans {
+  & :where(h1, h2, h3, h4, h5, h6, th) {
+    @apply font-display-sans;
+  }
+}
+
+@utility prose-headings-serif {
+  & :where(h1, h2, h3, h4, h5, h6, th) {
+    @apply font-display-serif;
+  }
+}

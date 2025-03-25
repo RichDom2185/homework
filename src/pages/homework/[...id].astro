@@ -1,0 +1,73 @@
+---
+import type { GetStaticPaths } from "astro";
+import { Fragment } from "astro/jsx-runtime";
+import { getCollection, type CollectionEntry } from "astro:content";
+import PageNumber from "../../components/markdown/PageNumber.astro";
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/shiki.css";
+
+export const getStaticPaths = (async () => {
+  const homeworkList = await getCollection("homework");
+  return homeworkList.map((hw) => ({
+    params: { id: hw.id },
+    props: { ...hw },
+  }));
+}) satisfies GetStaticPaths;
+
+type Props = CollectionEntry<"homework">;
+// TODO: Display other props
+const { data, ...hw } = Astro.props;
+---
+
+{/* TODO: Customize size and margins */}
+<style lang="css">
+  @page {
+    size: A4;
+    margin: 1in;
+  }
+</style>
+<PageNumber type={data.pageNumbers} font={data.font} />
+<Layout light title={data.title}>
+  <div
+    class:list={[
+      "max-w-5xl mx-auto space-y-4 p-12",
+      "print:max-w-none print:p-0 ",
+    ]}
+  >
+    <a href="/" class="print:hidden my-4 inline-block">&larr; Back</a>
+    <div class="space-y-1 print:space-y-2">
+      <h1
+        class:list={[
+          "text-4xl md:text-6xl print:text-3xl",
+          data.font === "sans" && "font-display-sans tracking-wide",
+          data.font === "serif" && "font-display-serif",
+        ]}
+      >
+        {data.title}
+      </h1>
+      <ul
+        class:list={[
+          "text-sm",
+          data.font === "sans" && "font-display-sans",
+          data.font === "serif" && "font-serif",
+        ]}
+      >
+        <li>{data.name}</li>
+        <li>{data.date}</li>
+      </ul>
+    </div>
+    <hr class="border-neutral-400 dark:border-neutral-600" />
+    <article
+      class:list={[
+        "space-y-4 leading-normal text-justify",
+        "[&_code]:text-[0.9em]",
+        "[&_pre>code]:text-[0.85em]",
+        "[&_:is(h1,h2,h3,h4,h5,h6)_code]:text-[length:unset]",
+        data.font === "sans" && "font-sans prose-headings-sans",
+        // TODO: Enable prose-headings-serif
+        data.font === "serif" && "font-serif",
+      ]}
+      set:html={hw.rendered?.html}
+    />
+  </div>
+</Layout>
