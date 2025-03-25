@@ -1,0 +1,19 @@
+{
+  "name": "homework",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610",
+  "dependencies": {
+    "astro": "^5.5.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
+}

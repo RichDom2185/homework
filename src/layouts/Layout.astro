@@ -1,0 +1,35 @@
+---
+type Props = {
+  light?: boolean;
+  dark?: boolean;
+  // Content-related properties
+  title?: string | ((siteTitle: string) => string);
+};
+const { light = false, dark = false } = Astro.props;
+const { title: rawTitle } = Astro.props;
+
+const title =
+  rawTitle === undefined
+    ? "Homework"
+    : typeof rawTitle === "string"
+      ? rawTitle
+      : rawTitle("Homework");
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="color-scheme"
+      content={light ? "light" : dark ? "dark" : "light dark"}
+    />
+    <title>{title}</title>
+    <meta name="title" content={title} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
