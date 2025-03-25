@@ -1,7 +1,47 @@
 <div>
   <main>
-    <section>
-      <h1>Homework</h1>
+    <section class="bg-dynamic">
+      <div
+        class:list={[
+          "min-h-0 sm:min-h-[700px] flex items-center justify-center",
+          "flex-col-reverse sm:flex-row gap-y-6",
+          "max-w-7xl mx-auto p-12",
+          "print:p-0 print:min-h-auto",
+          "transition-all duration-100",
+        ]}
+      >
+        <div class="w-full h-full">
+          <h1
+            class:list={[
+              "font-display-serif",
+              "text-5xl lg:text-6xl xl:text-7xl print:text-4xl",
+              "text-center sm:text-left",
+            ]}
+          >
+            <span class="hidden md:inline">1. </span>Homework
+          </h1>
+        </div>
+        <div
+          class:list={[
+            "w-full md:w-1/3 lg:w-1/2 print:hidden",
+            "flex justify-center items-center select-none",
+            "text-7xl lg:text-9xl print:text-4xl",
+          ]}
+        >
+          <div
+            class:list={[
+              "w-fit [&>*]:aspect-square [&>*]:inline-block",
+              "leading-none text-center font-mono font-semibold",
+              "grid grid-cols-2 gap-1",
+            ]}
+          >
+            <span class="text-amber-400 dark:text-yellow-300">&plus;</span>
+            <span class="text-amber-500 dark:text-yellow-500">&minus;</span>
+            <span class="text-amber-300 dark:text-yellow-200">&times;</span>
+            <span class="text-amber-700 dark:text-yellow-600">&divide;</span>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 </div>
