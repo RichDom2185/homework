@@ -11,6 +11,14 @@ const homework = defineCollection({
     title: z.string(),
     name: z.string(),
     date: z.coerce.date(),
+    logo: z
+      .object({
+        src: z.string(),
+        position: z.enum(["left", "right", "center"]),
+        width: z.number(),
+        height: z.number(),
+      })
+      .optional(),
     pageNumbers: z.enum(["right", "left", "center"]).optional(),
   }),
 });

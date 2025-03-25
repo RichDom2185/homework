@@ -1,0 +1,36 @@
+---
+import sharp from "sharp";
+
+type Props = {
+  src: string;
+  position: "left" | "center" | "right";
+  width: number;
+  height: number;
+};
+const { src, position, width, height } = Astro.props;
+
+const imgBuffer = await sharp(src)
+  // Convert to PNG to support transparency
+  .png()
+  .resize(width, height, {
+    fit: "contain",
+    position,
+    background: { r: 0, g: 0, b: 0, alpha: 0 },
+  })
+  .toBuffer();
+
+// iVBOR....
+const img = imgBuffer.toString("base64");
+
+const logo = `
+@page {
+  @top-${position} {
+    content: url("data:image/png;base64,${img}");
+    width: ${width}px;
+    margin-top: 0.5in;
+    margin-bottom: 5mm;
+  }
+}`;
+---
+
+<style set:html={logo}></style>

@@ -2,6 +2,7 @@
 import type { GetStaticPaths } from "astro";
 import { Fragment } from "astro/jsx-runtime";
 import { getCollection, type CollectionEntry } from "astro:content";
+import Logo from "../../components/markdown/Logo.astro";
 import PageNumber from "../../components/markdown/PageNumber.astro";
 import Layout from "../../layouts/Layout.astro";
 import "../../styles/shiki.css";
@@ -26,6 +27,7 @@ const { data, ...hw } = Astro.props;
     margin: 1in;
   }
 </style>
+{data.logo && <Logo {...data.logo} />}
 <PageNumber type={data.pageNumbers} font={data.font} />
 <Layout light title={data.title}>
   <div
