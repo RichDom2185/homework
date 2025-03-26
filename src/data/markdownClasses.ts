@@ -27,6 +27,7 @@ export default {
     "bg-[#fff2d9]",
     "dark:bg-amber-900/50",
   ],
+  "blockquote :is(h1, h2, h3, h4, h5, h6)": ["!text-[1em]"],
   table: [
     "table-auto",
     "border-collapse",
@@ -43,7 +44,7 @@ export default {
     "px-3",
     "py-1",
   ],
-  hr: ["dark:border-[color:unset]"],
+  hr: ["border-neutral-200", "dark:border-neutral-700"],
   "mjx-container": [
     "px-6",
     "py-4",
