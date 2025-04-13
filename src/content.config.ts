@@ -10,7 +10,7 @@ const homework = defineCollection({
     font: z.enum(["sans", "serif"]),
     title: z.string(),
     name: z.string(),
-    date: z.coerce.date(),
+    date: z.coerce.date().optional(),
     logo: z
       .object({
         src: z.string(),

@@ -60,7 +60,13 @@ const { data, ...hw } = Astro.props;
         ]}
       >
         <li>{data.name}</li>
-        <li><FormattedDate date={data.date} /></li>
+        {
+          data.date && (
+            <li>
+              <FormattedDate date={data.date} />
+            </li>
+          )
+        }
       </ul>
     </div>
     <hr class="border-neutral-400 dark:border-neutral-600" />
