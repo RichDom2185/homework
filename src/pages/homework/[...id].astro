@@ -76,6 +76,8 @@ const { data, ...hw } = Astro.props;
         "[&_code]:text-[0.9em]",
         "[&_pre>code]:text-[0.85em]",
         "[&_:is(h1,h2,h3,h4,h5,h6)_code]:text-[length:unset]",
+        "[&_:is(ul,ol)]:space-y-0.5",
+        "[&_:is(ul,ol)_:is(ul,ol)]:mt-0.5",
         data.font === "sans" && "font-sans prose-headings-sans",
         // TODO: Enable prose-headings-serif
         data.font === "serif" && "font-serif",
