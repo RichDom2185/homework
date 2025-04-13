@@ -46,11 +46,16 @@ export default {
     "py-1",
   ],
   hr: ["border-neutral-200", "dark:border-neutral-700"],
-  "mjx-container": [
+  // TODO: Use cascading styles once plugin is fixed
+  // "mjx-container": ["text-[0.875em]"],
+  // // Only target block-level LaTeX elements
+  // "prose > mjx-container": ["px-6", "py-4", "text-center", "[&>*]:inline"],
+  ".prose > mjx-container": [
     "px-6",
     "py-4",
     "text-center",
     "text-[0.875em]",
     "[&>*]:inline",
   ],
+  ":not(.prose) > mjx-container": ["text-[0.875em]", "[&>*]:inline"],
 };
