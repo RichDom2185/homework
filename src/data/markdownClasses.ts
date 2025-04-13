@@ -19,6 +19,7 @@ export default {
   ],
   ":not(pre)>code": ["px-1", "py-0.5", "rounded-sm"],
   "pre code span": ["dark:opacity-85"],
+  a: ["text-blue-600", "dark:text-blue-300", "underline", "underline-offset-4"],
   blockquote: [
     "space-y-2",
     "text-[0.9em]",
