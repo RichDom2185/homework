@@ -12,7 +12,7 @@
   "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610",
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
-    "astro": "^5.5.4",
+    "astro": "^5.13.1",
     "dayjs": "^1.11.13",
     "es-toolkit": "^1.33.0",
     "rehype-class-names": "^2.0.0",
