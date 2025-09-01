@@ -31,3 +31,25 @@ export function unwrapTopLevelDiv(className: string) {
     });
   };
 }
+
+/**
+ * Converts `input[type="checkbox"]` elements from disabled to,
+ * readonly for improved contrast and styling in browsers.
+ */
+export function convertDisabledCheckboxesToReadonly() {
+  return function transformer(tree: HastRoot) {
+    visit(tree, "element", (node) => {
+      if (node.tagName !== "input" || node.properties.type !== "checkbox") {
+        return;
+      }
+      if (node.properties.disabled) {
+        delete node.properties.disabled;
+        // Checkboxes can't be set to readonly, so we use aria-readonly
+        node.properties["aria-readonly"] = "true";
+        // Fallback for browsers that don't support aria-readonly
+        node.properties.style ??= "";
+        node.properties.style += ";pointer-events: none;";
+      }
+    });
+  };
+}

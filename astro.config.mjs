@@ -8,13 +8,13 @@ import rehypeMathjax from "rehype-mathjax";
 import remarkMath from "remark-math";
 import markdownClasses from "./src/data/markdownClasses";
 import {
+  convertDisabledCheckboxesToReadonly,
   unwrapTopLevelDiv,
   wrapWithTopLevelDiv,
 } from "./src/utilities/markdown";
 
 /**
- * @import {ShikiTransformer} from '@shikijs/core'
- * @type {ShikiTransformer}
+ * @type {import('@shikijs/core').ShikiTransformer}
  */
 const transformerWrapWithDiv = {
   pre: (node) => {
@@ -58,6 +58,7 @@ export default defineConfig({
       [wrapWithTopLevelDiv, "prose"],
       [rehypeClassNames, markdownClasses],
       [unwrapTopLevelDiv, "prose"],
+      convertDisabledCheckboxesToReadonly,
     ],
   },
   server: {

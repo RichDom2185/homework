@@ -9,7 +9,10 @@ export default {
   h2: "text-lg md:text-xl print:text-xl",
   h3: "text-lg",
   "ol li": ["list-decimal", "ml-5"],
-  "ul li": ["list-disc", "ml-5"],
+  "ul li": ["ml-5"],
+  "ul li:not(.task-list-item)": ["list-disc"],
+  ".task-list-item": ["relative"],
+  '.task-list-item input[type="checkbox"]': ["absolute", "-left-5", "top-1"],
   pre: [
     // TODO: Investigate why astro-code is overridden
     "astro-code",
