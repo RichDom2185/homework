@@ -42,11 +42,17 @@ const { data, ...hw } = Astro.props;
     ]}
   >
     <a href="/" class="print:hidden my-4 inline-block">&larr; Back</a>
-    <div class="space-y-1 print:space-y-2">
+    <div
+      class:list={[
+        "space-y-1 print:space-y-2",
+        data.font === "sans" && "md:space-y-3",
+      ]}
+    >
       <h1
         class:list={[
           "text-4xl md:text-6xl print:text-3xl",
-          data.font === "sans" && "font-display-sans tracking-wide",
+          data.font === "sans" &&
+            "font-display-sans tracking-wide font-semibold",
           data.font === "serif" && "font-display-serif",
         ]}
       >

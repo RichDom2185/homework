@@ -6,7 +6,7 @@ export default {
     "relative",
   ],
   h1: "text-xl lg:text-2xl",
-  h2: "text-lg lg:text-xl",
+  h2: "text-lg md:text-xl print:text-xl",
   h3: "text-lg",
   "ol li": ["list-decimal", "ml-5"],
   "ul li": ["list-disc", "ml-5"],
@@ -29,6 +29,7 @@ export default {
     "dark:bg-amber-900/50",
   ],
   "blockquote :is(h1, h2, h3, h4, h5, h6)": ["!text-[1em]"],
+  "li blockquote": ["my-2"],
   table: [
     "table-auto",
     "border-collapse",
