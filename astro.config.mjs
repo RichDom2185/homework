@@ -1,4 +1,5 @@
 // @ts-check
+import vue from "@astrojs/vue";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import clsx from "clsx";
@@ -41,6 +42,7 @@ const transformerWrapWithDiv = {
 };
 
 export default defineConfig({
+  integrations: [vue()],
   markdown: {
     shikiConfig: {
       // Refer to https://shiki.style/guide/dual-themes
