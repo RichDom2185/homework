@@ -1,10 +1,10 @@
 ---
-import Files from "../components/Files.astro";
+import FileBrowser from "../components/FileBrowser.vue";
 import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
   <Welcome />
-  <Files />
+  <FileBrowser client:load />
 </Layout>
