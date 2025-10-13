@@ -13,7 +13,7 @@
   "dependencies": {
     "@astrojs/vue": "^5.1.1",
     "@tailwindcss/vite": "^4.1.11",
-    "astro": "^5.13.1",
+    "astro": "^5.14.3",
     "dayjs": "^1.11.13",
     "es-toolkit": "^1.33.0",
     "rehype-class-names": "^2.0.0",
