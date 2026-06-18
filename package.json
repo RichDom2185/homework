@@ -24,6 +24,7 @@
     "vue": "^3.5.22"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.9",
     "@shikijs/core": "^4.2.0",
     "@types/hast": "^3.0.4",
     "clsx": "^2.1.1",
